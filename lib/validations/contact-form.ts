@@ -1,0 +1,23 @@
+import * as z from "zod";
+
+export const contactFormSchema = z.object({
+  name: z
+    .string()
+    .min(2, "Please enter your full name."),
+
+  email: z
+    .email("Please enter a valid email address."),
+
+  phone: z
+    .string()
+    .min(8, "Please enter a valid phone number."),
+
+  product: z
+    .string()
+    .min(1, "Please select a product."),
+
+  message: z.string().optional()
+});
+
+export type ContactFormValues =
+  z.infer<typeof contactFormSchema>;
