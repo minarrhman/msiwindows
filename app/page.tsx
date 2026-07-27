@@ -5,6 +5,13 @@ import FeaturedProducts from "@/components/sections/home/FeaturedProducts";
 import ProcessSection from "@/components/sections/home/ProcessSection";
 import Testimonials from "@/components/sections/home/Testimonials";
 import ContactInfo from "@/components/sections/home/ContactInfo";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Aluminium Windows & Doors Sydney",
+  description:
+    "Premium aluminium windows, sliding doors, stacker doors and shopfront systems throughout Sydney.",
+};
 
 export default function HomePage() {
   return (

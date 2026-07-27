@@ -4,6 +4,13 @@ import ContactForm from "@/components/sections/contact/ContactForm";
 import ContactLocation from "@/components/sections/contact/ContactLocation";
 import ContactFAQ from "@/components/sections/contact/ContactFAQ";
 
+
+export const metadata = {
+  title: "Contact Window Service Sydney",
+  description:
+    "Contact our Sydney team for aluminium windows, doors, shopfronts and custom glazing solutions.",
+};
+
 export default function ContactPage() {
   return (
     <>
