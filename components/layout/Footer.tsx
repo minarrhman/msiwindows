@@ -1,5 +1,10 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTiktok,
+  FaWhatsapp } from "react-icons/fa";
 
 import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
@@ -64,6 +69,115 @@ export default function Footer() {
               Premium aluminium windows, doors, and shopfront
               solutions for homes and businesses throughout Sydney.
             </p>
+            {/* Social Links */}
+
+            <div className="mt-6">
+              <h4 className="mb-4 font-semibold text-white">
+                Follow Us
+              </h4>
+
+              <div className="flex gap-3">
+                <Link
+                  href="https://facebook.com"
+                  target="_blank"
+                  aria-label="Facebook"
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    text-gray-300
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:border-primary
+                    hover:text-primary
+                  "
+                >
+                  <FaFacebookF className="h-5 w-5" />
+                </Link>
+
+                <Link
+                  href="https://instagram.com"
+                  target="_blank"
+                  aria-label="Instagram"
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    text-gray-300
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:border-primary
+                    hover:text-primary
+                  "
+                >
+                  <FaInstagram className="h-5 w-5" />
+                </Link>
+
+                <Link
+                  href="https://wa.me/61450351924"
+                  target="_blank"
+                  aria-label="WhatsApp"
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    text-gray-300
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:border-primary
+                    hover:text-primary
+                  "
+                >
+                  <FaWhatsapp className="h-5 w-5" />
+                </Link>
+
+                <Link
+                  href="https://tiktok.com"
+                  target="_blank"
+                  aria-label="TikTok"
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    text-gray-300
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:border-primary
+                    hover:text-primary
+                  "
+                >
+                  <FaTiktok className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -77,7 +191,7 @@ export default function Footer() {
               {links.map((link) => (
                 <li key={link}>
                   <Link
-                    href=""
+                    href={link.toLowerCase()}
                     className="
                       text-gray-400
                       transition-all

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/shared/SectionHeading";
 import FeaturedProductItem from "@/components/shared/FeaturedProductItem";
@@ -23,6 +25,16 @@ export default function FeaturedProducts() {
               reversed={index % 2 !== 0}
             />
           ))}
+        </div>
+        <div className="mt-20 flex justify-center">
+          <Link href="/products">
+            <Button
+              size="lg"
+              className="px-8"
+            >
+              See All Products
+            </Button>
+          </Link>
         </div>
       </Container>
     </section>

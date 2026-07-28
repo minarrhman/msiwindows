@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -9,6 +10,7 @@ import { NAVIGATION } from "@/constants/navigation";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -141,27 +143,32 @@ export default function MobileMenu() {
             {/* LINKS */}
 
             <nav className="p-3">
-              {NAVIGATION.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="
+              {NAVIGATION.map((item) => {
+                const isActive = pathname === item.href;
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={`
                     flex
                     items-center
                     rounded-xl
                     px-4
                     py-3
-                    text-white
                     transition-all
                     duration-200
-                    hover:bg-white/5
-                    hover:text-primary
-                  "
-                >
-                  {item.label}
-                </Link>
-              ))}
+                    ${isActive
+                                          ? "bg-white text-black font-semibold"
+                                          : "text-white hover:bg-white/5 hover:text-primary"
+                                        }
+                  `}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* CTA */}
