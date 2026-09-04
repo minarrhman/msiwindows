@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/shared/SectionHeading";
 import TestimonialCard from "@/components/shared/TestimonialCard";
@@ -5,9 +7,12 @@ import TestimonialCard from "@/components/shared/TestimonialCard";
 import FadeUp from "@/components/shared/FadeUp";
 import StaggerContainer from "@/components/shared/StaggerContainer";
 
-import { TESTIMONIALS } from "@/data/testimonials";
+import { Button } from "@/components/ui/button";
+import { getReviews } from "@/lib/reviews";
 
-export default function Testimonials() {
+export default async function Testimonials() {
+  const reviews = await getReviews(3);
+
   return (
     <section className="py-24">
       <Container>
@@ -23,18 +28,30 @@ export default function Testimonials() {
 
         <StaggerContainer>
           <div className="mt-16 grid gap-6 lg:grid-cols-3">
-            {TESTIMONIALS.map((testimonial) => (
-              <FadeUp key={testimonial.name}>
+            {reviews.map((review) => (
+              <FadeUp key={review.id}>
                 <TestimonialCard
-                  {...testimonial}
+                  name={review.name}
+                  location={review.address}
+                  quote={review.review}
+                  rating={review.rating}
                 />
               </FadeUp>
             ))}
           </div>
         </StaggerContainer>
 
+        <FadeUp>
+          <div className="mt-12 flex justify-center">
+            <Link href="/reviews">
+              <Button variant="outline">
+                View All Reviews
+              </Button>
+            </Link>
+          </div>
+        </FadeUp>
+
       </Container>
     </section>
   );
 }
-

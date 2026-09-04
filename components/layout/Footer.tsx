@@ -78,7 +78,7 @@ export default function Footer() {
 
               <div className="flex gap-3">
                 <Link
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/share/1Lf3Xu77DT/?mibextid=wwXIfr"
                   target="_blank"
                   aria-label="Facebook"
                   className="
@@ -103,7 +103,7 @@ export default function Footer() {
                 </Link>
 
                 <Link
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/mswindows777?igsi=NWFtb2NtdnU4bXVk"
                   target="_blank"
                   aria-label="Instagram"
                   className="
@@ -153,7 +153,7 @@ export default function Footer() {
                 </Link>
 
                 <Link
-                  href="https://tiktok.com"
+                  href="https://www.tiktok.com/@mswindows0?is_from_webapp=1&sender_device=pc"
                   target="_blank"
                   aria-label="TikTok"
                   className="
