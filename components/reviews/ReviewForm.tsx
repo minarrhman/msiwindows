@@ -1,10 +1,13 @@
 "use client";
 
 import { useActionState, useEffect } from "react";
-import { Star } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Star } from "lucide-react";
 
-import { submitReview } from "@/app/actions/reviews";
+import {
+  submitReview,
+  type ReviewActionState,
+} from "@/app/actions/reviews";
 
 import {
   Field,
@@ -18,27 +21,30 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
-const initialState = {
+const initialState: ReviewActionState = {
   success: false,
 };
 
 export default function ReviewForm() {
-    const router = useRouter();
-    const [state, formAction, isPending] = useActionState(
-        submitReview,
-        initialState
+  const router = useRouter();
+
+  const [state, formAction, isPending] = useActionState(
+    submitReview,
+    initialState
   );
 
   useEffect(() => {
     if (state.success) {
-        const form = document.getElementById(
-            "review-form"
-        ) as HTMLFormElement | null;
-        
-        form?.reset();
-        router.refresh();
+      const form = document.getElementById(
+        "review-form"
+      ) as HTMLFormElement | null;
+
+      form?.reset();
+
+      router.refresh();
     }
-}, [state.success, router]);
+  }, [state.success, router]);
+
   return (
     <form
       id="review-form"
@@ -110,10 +116,14 @@ export default function ReviewForm() {
                 />
 
                 <Star
-                  className="h-7 w-7 text-zinc-300 transition-colors
-                             peer-checked:fill-current
-                             peer-checked:text-primary
-                             hover:text-primary"
+                  className="
+                    h-7 w-7
+                    text-zinc-300
+                    transition-colors
+                    peer-checked:fill-current
+                    peer-checked:text-primary
+                    hover:text-primary
+                  "
                 />
               </label>
             ))}

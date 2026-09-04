@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+
 import { createClient } from "@/lib/supabase/server";
 
 export type ReviewActionState = {
@@ -47,21 +48,20 @@ export async function submitReview(
 
   const supabase = await createClient();
 
-  const { error } = await supabase
-    .from("reviews")
-    .insert({
-      name,
-      address,
-      rating,
-      review,
-    });
+  const { error } = await supabase.from("reviews").insert({
+    name,
+    address,
+    rating,
+    review,
+  });
 
   if (error) {
     console.error("Error submitting review:", error);
 
     return {
       success: false,
-      error: "Something went wrong while submitting your review. Please try again.",
+      error:
+        "Something went wrong while submitting your review. Please try again.",
     };
   }
 

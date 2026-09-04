@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 import { createClient } from "@/lib/supabase/server";
 
 export async function GET() {
@@ -13,8 +14,12 @@ export async function GET() {
     console.error("Review cron error:", error);
 
     return NextResponse.json(
-      { success: false },
-      { status: 500 }
+      {
+        success: false,
+      },
+      {
+        status: 500,
+      }
     );
   }
 
