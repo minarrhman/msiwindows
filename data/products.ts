@@ -38,6 +38,13 @@ export const PRODUCTS = [
     description:
       "Classic double hung windows featuring versatile ventilation options and timeless style. A practical choice for Sydney homeowners seeking energy efficiency and architectural elegance.",
   },
+  {
+    name: "Louvre Windows Sydney",
+    category: "windows",
+    image: "/images/products/louvre-window.jpeg",
+    description:
+      "Stylish louvre windows designed for Sydney homes and commercial properties. Enjoy excellent natural ventilation, airflow, and light control while adding a modern architectural finish to your property.",
+    },
 
   {
     name: "Sliding Windows Sydney",
